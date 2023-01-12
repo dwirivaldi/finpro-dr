@@ -1,0 +1,24 @@
+.food-card {
+    padding-bottom: 20px;
+    display:flex;
+    /* transform: translate(5%, 5%); */
+}
+
+.food-card-1 {
+    padding: 10px 10px;
+    width: 500px;
+    background: #fff;
+}
+
+.food-card-1 img {
+    width: 250px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.food-card-2 {
+    margin: 0 auto;
+    float: none;
+    margin-bottom: 5px;
+    display: flex;
+}
