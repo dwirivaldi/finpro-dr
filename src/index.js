@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import NavBar from "./Components/NavBar";
 import Login from "./Pages/Login";
-import RecipeCards from "./Components/RecipeCards";
+import Recipes from "./Pages/Recipes";
 import Home from "./Pages/Home";
 import User from "./Pages/User";
 import Details from "./Pages/Details";
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/recipe",
-        element: localStorage.getItem("token") ? <RecipeCards /> : <Login />,
+        element: localStorage.getItem("token") ? <Recipes /> : <Login />,
       },
       {
         path: "/all-users",

@@ -75,45 +75,39 @@ function RecipeCards() {
       {allFoods &&
         allFoods.map((food) => {
           return (
-            <Col key={food.id} md={4} className="food-card">
-              <Card
-                className="food-card-2 flex-column"
-                style={{ width: "20rem" }}
-              >
-                <Card.Img
-                  variant="top"
-                  src={food.imageUrl}
-                  className=""
-                  style={{ height: "340px", objectFit: "cover" }}
-                />
-                <Card.Body>
-                  <Card.Title>
-                    <h5>{food.name}</h5>
-                    <span>
-                      <i
-                        className="bi bi-star-fill"
-                        style={{ color: "#FFFF00" }}
-                      ></i>{" "}
-                      {food.rating}{" "}
-                    </span>
-                    <span>
-                      <i
-                        className="bi bi-hand-thumbs-up-fill"
-                        style={{
-                          color: `${food.isLike ? "#DD4A48" : "#F5EEDC"}`,
-                          cursor: "pointer",
-                        }}
-                        onClick={() => handleLikes(food.id, food.isLike)}
-                      ></i>{" "}
-                      {food.totalLikes}
-                    </span>{" "}
-                  </Card.Title>
-                  <a key={food.id} href={`/details/${food.id}`}>
-                    <i className="bi bi-info-circle"></i>
-                  </a>
-                </Card.Body>
-              </Card>
-            </Col>
+            <Card
+              key={food.id}
+              className="food-card-2 flex-column"
+              style={{ width: "20rem" }}
+            >
+              <Card.Img
+                variant="top"
+                src={food.imageUrl}
+                className="mx-auto"
+                style={{ height: "340px", objectFit: "cover" }}
+              />
+              <Card.ImgOverlay className="card-overlay card-textbox-1 p-2"></Card.ImgOverlay>
+              <Card.ImgOverlay className="card-overlay card-textbox-2 p-2">
+                <Card.Title className="card-name text-capitalize fs-6 mb-1">
+                  <h4>{food.name}</h4>
+                  <span className="card-symbols" style={{ marginLeft: "1px" }}>
+                    <i className="bi bi-star-fill"></i> {food.rating}{" "}
+                    <i
+                      className="bi bi-heart-fill"
+                      style={{
+                        color: `${food.isLike ? "#DD4A48" : "#F5EEDC"}`,
+                        cursor: "pointer",
+                      }}
+                      onClick={() => handleLikes(food.id, food.isLike)}
+                    ></i>{" "}
+                    {food.totalLikes}
+                  </span>{" "}
+                </Card.Title>
+                <a key={food.id} href={`/details/${food.id}`}>
+                  <i className="bi bi-info-circle"></i>
+                </a>
+              </Card.ImgOverlay>
+            </Card>
           );
         })}
     </>
