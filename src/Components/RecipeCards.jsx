@@ -108,9 +108,9 @@ function RecipeCards() {
                       {food.totalLikes}
                     </span>{" "}
                   </Card.Title>
-                  <span>
+                  <a key={food.id} href={`/details/${food.id}`}>
                     <i className="bi bi-info-circle"></i>
-                  </span>
+                  </a>
                 </Card.Body>
               </Card>
             </Col>

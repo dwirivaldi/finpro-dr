@@ -1,14 +1,55 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import NavBar from "./Components/NavBar";
+import Login from "./Pages/Login";
+import RecipeCards from "./Components/RecipeCards";
+import Home from "./Pages/Home";
+import User from "./Pages/User";
+import Details from "./Pages/Details";
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <>
+        <NavBar />
+        <Outlet />
+      </>
+    ),
+    errorElement: <p>Page Not Found</p>,
+    children: [
+      {
+        path: "/home",
+        element: localStorage.getItem("token") ? <Home /> : <Login />,
+      },
+      {
+        path: "/recipe",
+        element: localStorage.getItem("token") ? <RecipeCards /> : <Login />,
+      },
+      {
+        path: "/all-users",
+        element: localStorage.getItem("token") ? <User /> : <Login />,
+      },
+      {
+        path: "/details/:foodID",
+        element: localStorage.getItem("token") ? <Details /> : <Login />,
+      },
+    ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    {/* <App /> */}
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 

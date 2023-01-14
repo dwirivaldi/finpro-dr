@@ -34,7 +34,12 @@ function Login() {
           console.log(token);
           localStorage.setItem("token", token);
 
-          window.location.href = "/";
+          const role = res.data.user.role;
+          localStorage.setItem("role", role);
+
+          const name = res.data.user.name;
+          localStorage.setItem("name", name);
+          window.location.href = "/home";
         })
         .catch((err) => {
           const showError = err.response.data.status_message;
