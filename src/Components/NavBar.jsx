@@ -8,30 +8,34 @@ import "../Styles/NavBar.css";
 
 function NavBar() {
   return (
-    <Navbar className="nav-container">
-      <Container className="navbar">
-        <Navbar.Brand className="nav-brand" href="/home">
-          FoodiesDev
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto nav-links">
-            <Nav.Link href="/home">Home</Nav.Link>
-            <Nav.Link href="/recipe">Recipe</Nav.Link>
-          </Nav>
-          <NavDropdown
-            className="nav-drop"
-            title={localStorage.getItem("name")}
-            id="basic-nav-dropdown"
-          >
-            <NavDropdown.Item href="/all-users">User</NavDropdown.Item>
-            <NavDropdown.Item>
-              <Logout />
-            </NavDropdown.Item>
-          </NavDropdown>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <>
+      {localStorage.getItem("token") ? (
+        <Navbar className="nav-container">
+          <Container className="navbar">
+            <Navbar.Brand className="nav-brand" href="/">
+              FoodiesDev
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="me-auto nav-links">
+                <Nav.Link href="/">Home</Nav.Link>
+                <Nav.Link href="/recipe">Recipe</Nav.Link>
+              </Nav>
+              <NavDropdown
+                className="nav-drop"
+                title={localStorage.getItem("name")}
+                id="basic-nav-dropdown"
+              >
+                <NavDropdown.Item href="/all-users">User</NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Logout />
+                </NavDropdown.Item>
+              </NavDropdown>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
+      ) : null}
+    </>
   );
 }
 

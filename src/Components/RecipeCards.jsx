@@ -70,6 +70,31 @@ function RecipeCards() {
     }
   };
 
+  const handleDelete = (id) => {
+    if (
+      window.confirm(
+        "Are you sure you want to delete this recipe? This change cannot be undone."
+      )
+    ) {
+      axios({
+        method: "delete",
+        url: `${process.env.REACT_APP_BASEURL}/api/v1/delete-food/${id}`,
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          apiKey: process.env.REACT_APP_APIKEY,
+        },
+      })
+        .then((response) => {
+          console.log(response);
+          alert("Your food has been deleted.");
+          getFood();
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  };
+
   return (
     <>
       {allFoods &&
@@ -77,7 +102,7 @@ function RecipeCards() {
           return (
             <Card
               key={food.id}
-              className="food-card-2 flex-column"
+              className="food-card-1 flex-column"
               style={{ width: "20rem" }}
             >
               <Card.Img
@@ -105,6 +130,16 @@ function RecipeCards() {
                 </Card.Title>
                 <a key={food.id} href={`/details/${food.id}`}>
                   <i className="bi bi-info-circle"></i>
+                </a>
+                <a
+                  key={food.id}
+                  onClick={() => handleDelete(food.id)}
+                  style={{ cursor: "pointer", color: "red" }}
+                >
+                  <i className="bi bi-trash"></i>
+                </a>
+                <a>
+                  <i className="bi bi-pencil-square"></i>
                 </a>
               </Card.ImgOverlay>
             </Card>

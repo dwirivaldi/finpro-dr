@@ -13,6 +13,7 @@ import Details from "./Pages/Details";
 import Footer from "./Pages/Footer";
 import Register from "./Pages/Register.jsx";
 import AddFood from "./Components/AddFood";
+import NotLogin from "./Pages/NotLogin";
 
 const router = createBrowserRouter([
   {
@@ -27,24 +28,24 @@ const router = createBrowserRouter([
     errorElement: <p>Page Not Found</p>,
     children: [
       {
-        path: "/home",
+        path: "/",
         element: localStorage.getItem("token") ? <Home /> : <Login />,
       },
       {
         path: "/recipe",
-        element: localStorage.getItem("token") ? <Recipes /> : <Login />,
+        element: localStorage.getItem("token") ? <Recipes /> : <NotLogin />,
       },
       {
         path: "/all-users",
-        element: localStorage.getItem("token") ? <User /> : <Login />,
+        element: localStorage.getItem("token") ? <User /> : <NotLogin />,
       },
       {
         path: "/details/:foodID",
-        element: localStorage.getItem("token") ? <Details /> : <Login />,
+        element: localStorage.getItem("token") ? <Details /> : <NotLogin />,
       },
       {
         path: "/add-food",
-        element: localStorage.getItem("token") ? <AddFood /> : <Login />,
+        element: localStorage.getItem("token") ? <AddFood /> : <NotLogin />,
       },
     ],
   },
@@ -52,11 +53,13 @@ const router = createBrowserRouter([
     path: "/register",
     element: <Register />,
   },
+
   {
-    path: "/login",
+    path: "/",
     element: <Login />,
   },
 ]);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>

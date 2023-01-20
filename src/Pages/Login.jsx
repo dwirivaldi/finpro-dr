@@ -3,11 +3,14 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { useState } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Form } from "react-bootstrap";
 import "../Styles/Login.css";
 
 function Login() {
-  const [showPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   const formik = useFormik({
     initialValues: {
@@ -41,11 +44,11 @@ function Login() {
 
           const name = res.data.user.name;
           localStorage.setItem("name", name);
-          window.location.href = "/home";
+          window.location.href = "/";
         })
-        .catch((err) => {
-          const showError = err.response.data.status_message;
-          alert(showError);
+        .catch((error) => {
+          console.error(error);
+          alert("Invalid email and password.");
         });
     },
   });
@@ -90,6 +93,18 @@ function Login() {
                 <div>{formik.errors.password}</div>
               ) : null}
               <br />
+              <>
+                {["Show Password"].map((type) => (
+                  <div key={`${type}`} className="mt-2 show-password">
+                    <Form.Check
+                      type="checkbox"
+                      id={`${type}`}
+                      label={`${type}`}
+                      onClick={togglePassword}
+                    />
+                  </div>
+                ))}
+              </>
               <br />
               <button className="btn-login" type="submit" value="Login">
                 LOGIN

@@ -1,13 +1,8 @@
-.food-card {
-    padding-bottom: 20px;
-    margin-top: 75px;
-
-}
-
 .food-card-1 {
     padding: 10px 10px;
-    width: 500px;
+    width: 50%;
     background: #fff;
+    padding-bottom: 15px; 
 }
 
 .food-card-1 img {
@@ -16,7 +11,7 @@
     object-fit: cover;
 }
 
-.food-card-2 {
+.food-card-1 {
     float: none;
     margin-bottom: 5px;
     justify-content: center;
@@ -35,7 +30,7 @@
 .card-textbox-1 {
     display:flex;
     margin-top: 270px;
-    background:#a543286a;
+    background:#9e23836c;
     flex-direction: column;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);

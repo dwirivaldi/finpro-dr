@@ -46,12 +46,12 @@ function User() {
                       {user.name}
                     </Card.Title>
                     <Card.Text className="user-cardtext">
-                      <i class="bi bi-envelope-at-fill"></i> {user.email}
+                      <i className="bi bi-envelope-at-fill"></i> {user.email}
                       <br />
-                      <i class="bi bi-file-person-fill"></i>{" "}
+                      <i className="bi bi-file-person-fill"></i>{" "}
                       {capitalizeFirst(`${user.role}`)}
                       <br />
-                      <i class="bi bi-phone-vibrate-fill"></i>{" "}
+                      <i className="bi bi-phone-vibrate-fill"></i>{" "}
                       {user.phoneNumber}
                     </Card.Text>
                   </Card.Body>
