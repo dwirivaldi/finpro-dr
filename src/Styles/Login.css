@@ -1,0 +1,27 @@
+h1{
+    margin-top: 30px;
+    text-align: center;
+}
+
+p{
+    text-align: center;
+}
+
+.login{
+    display: flex;
+    justify-content: center;
+    margin-top: 240px;
+    border: solid;
+    width: 400px;
+    border-radius: 10px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+.input-login{}
+
+.btn-login{
+    width: 218px;
+    margin-bottom: 20px;
+    height: 37px;
+    border-radius: 25px;
+}

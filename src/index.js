@@ -10,6 +10,8 @@ import Recipes from "./Pages/Recipes";
 import Home from "./Pages/Home";
 import User from "./Pages/User";
 import Details from "./Pages/Details";
+import Footer from "./Pages/Footer";
+import Register from "./Pages/Register.jsx";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +20,7 @@ const router = createBrowserRouter([
       <>
         <NavBar />
         <Outlet />
+        <Footer />
       </>
     ),
     errorElement: <p>Page Not Found</p>,
@@ -39,6 +42,10 @@ const router = createBrowserRouter([
         element: localStorage.getItem("token") ? <Details /> : <Login />,
       },
     ],
+  },
+  {
+    path: "/register",
+    element: <Register />,
   },
   {
     path: "/login",

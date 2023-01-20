@@ -3,6 +3,8 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { useState } from "react";
+import { Container } from "react-bootstrap";
+import "../Styles/Login.css";
 
 function Login() {
   const [showPassword] = useState(false);
@@ -49,41 +51,62 @@ function Login() {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <label htmlFor="email">Email Address</label>
-      <input
-        id="email"
-        name="email"
-        type="text"
-        autoComplete="current-email"
-        placeholder="Type your email"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.email}
-      />
-      {formik.touched.email && formik.errors.email ? (
-        <div>{formik.errors.email}</div>
-      ) : null}
-      <br />
-      <label htmlFor="password">Password</label>
-      <input
-        id="password"
-        name="password"
-        autoComplete="current-password"
-        placeholder="Type your password"
-        type={showPassword ? "text" : "password"}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.password}
-      />
-      {formik.touched.password && formik.errors.password ? (
-        <div>{formik.errors.password}</div>
-      ) : null}
-      <br />
-      <button type="submit" value="Login">
-        Log In
-      </button>
-    </form>
+    <>
+      <Container className="login">
+        <div className="login-box">
+          <h1>Login</h1>
+          <br />
+          <Container className="input-login">
+            <form onSubmit={formik.handleSubmit}>
+              <label htmlFor="email">Email Address</label>
+              <br />
+              <input
+                id="email"
+                name="email"
+                type="text"
+                autoComplete="current-email"
+                placeholder="Type your email"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.email}
+              />
+              {formik.touched.email && formik.errors.email ? (
+                <div>{formik.errors.email}</div>
+              ) : null}
+              <br />
+              <label htmlFor="password">Password</label>
+              <br />
+              <input
+                id="password"
+                name="password"
+                autoComplete="current-password"
+                placeholder="Type your password"
+                type={showPassword ? "text" : "password"}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.password}
+              />
+              {formik.touched.password && formik.errors.password ? (
+                <div>{formik.errors.password}</div>
+              ) : null}
+              <br />
+              <br />
+              <button className="btn-login" type="submit" value="Login">
+                LOGIN
+              </button>
+            </form>
+          </Container>
+          <div>
+            <p>
+              Not a member?{" "}
+              <span>
+                <a href="/register">Sign up now</a>
+              </span>
+            </p>
+          </div>
+        </div>
+      </Container>
+    </>
   );
 }
 
