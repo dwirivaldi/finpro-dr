@@ -3,6 +3,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import "../Styles/Detail.css";
 
 function Details() {
   const [allDetail, setAllDetail] = useState("");
@@ -29,25 +30,21 @@ function Details() {
       <div className="detail-container">
         <div className="detail-info">
           <h3 className="text-capitalize">{allDetail && allDetail.name}</h3>
+          <p>{allDetail && allDetail.description}</p>
           <p>
-            <i class="bi bi-pen"></i> {allDetail && allDetail.description}
-          </p>
-          <p>
-            <i class="bi bi-cart3"></i>{" "}
+            <i class="bi bi-dash"></i>{" "}
             {allDetail &&
               allDetail.ingredients.map((m, index) => {
                 return <span key={index}>{(index ? ", " : "") + m}</span>;
               })}
           </p>
+          <div className="detail-icons">
+            <i className="bi bi-star-fill"></i> {allDetail && allDetail.rating}{" "}
+            <i className="bi bi-heart-fill" style={{ color: "#DD4A48" }}></i>{" "}
+            {allDetail && allDetail.totalLikes}
+          </div>
         </div>
         <img src={allDetail && allDetail.imageUrl} />
-      </div>
-      <div className="detail-footer">
-        <div className="detail-icons">
-          <i className="bi bi-star-fill"></i> {allDetail && allDetail.rating} |{" "}
-          <i className="bi bi-heart-fill" style={{ color: "#DD4A48" }}></i>{" "}
-          {allDetail && allDetail.totalLikes}
-        </div>
       </div>
     </>
   );

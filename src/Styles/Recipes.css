@@ -5,3 +5,15 @@
     justify-content: center;
     margin-top: 55px;
 }
+
+.add-menu{
+    margin-top: 66px;
+    margin-bottom: -55px;
+    margin-left: 127px;
+}
+
+.btn-add {
+    box-shadow: 0 3px 6px var(--shadow-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
+}

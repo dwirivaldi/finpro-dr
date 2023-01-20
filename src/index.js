@@ -12,6 +12,7 @@ import User from "./Pages/User";
 import Details from "./Pages/Details";
 import Footer from "./Pages/Footer";
 import Register from "./Pages/Register.jsx";
+import AddFood from "./Components/AddFood";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "/details/:foodID",
         element: localStorage.getItem("token") ? <Details /> : <Login />,
+      },
+      {
+        path: "/add-food",
+        element: localStorage.getItem("token") ? <AddFood /> : <Login />,
       },
     ],
   },

@@ -1,28 +1,23 @@
-h1{
-    margin-top: 30px;
-    text-align: center;
-}
-
-p{
-    text-align: center;
-}
-
-.login{
+.register{
     display: flex;
     justify-content: center;
-    margin-top: 240px;
+    margin-top: 200px;
     border: solid;
     width: 400px;
     border-radius: 10px;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
-
-.btn-login{
-    width: 218px;
-    margin-bottom: 20px;
-    height: 37px;
-    border-radius: 25px;
+.btn-signup{
+    width: 150px;
+    height: 35px;
+    margin-bottom: 33px;
+    margin-left: 40px;
     background-color: var(--background-color);
     box-shadow: 0 3px 6px var(--shadow-color);
+}
+
+.register-input{
+    margin-top: 10px;
+    margin-left: 77px;
 }

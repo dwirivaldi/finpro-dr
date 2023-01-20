@@ -2,6 +2,8 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { Container } from "react-bootstrap";
+import "../Styles/Register.css";
 
 function Register() {
   const formik = useFormik({
@@ -69,110 +71,126 @@ function Register() {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <label htmlFor="name">Name</label>
-      <input
-        id="name"
-        name="name"
-        type="text"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.name}
-      />
-      {formik.touched.name && formik.errors.name ? (
-        <div>{formik.errors.name}</div>
-      ) : null}
-      <br />
-      <label htmlFor="lastName">email</label>
-      <input
-        id="email"
-        name="email"
-        type="email"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.email}
-      />
-      {formik.touched.email && formik.errors.email ? (
-        <div>{formik.errors.email}</div>
-      ) : null}
-      <br />
-      <label htmlFor="password">Password</label>
-      <input
-        id="password"
-        name="password"
-        type="password"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.password}
-      />
-      {formik.touched.password && formik.errors.password ? (
-        <div>{formik.errors.password}</div>
-      ) : null}
-      <br />
-      <label htmlFor="passwordRepeat">Confirm Password</label>
-      <input
-        id="passwordRepeat"
-        name="passwordRepeat"
-        type="password"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.passwordRepeat}
-      />
-      {formik.touched.passwordRepeat && formik.errors.passwordRepeat ? (
-        <div>{formik.errors.passwordRepeat}</div>
-      ) : null}
-      <br />
-      <label htmlFor="role">Role</label>
-      <select
-        className="register-input"
-        id="role"
-        name="role"
-        type="text"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.role}
-      >
-        <option value="">Select Role</option>
-        <option value="admin">Admin</option>
-        <option value="user">User</option>
-      </select>
-      {formik.touched.role && formik.errors.role ? (
-        <div>{formik.errors.role}</div>
-      ) : null}
-      <br />
+    <>
+      <Container className="register">
+        <div>
+          <h1>Sign Up</h1>
+          <br />
+          <Container>
+            <form onSubmit={formik.handleSubmit}>
+              <label htmlFor="name">Name</label>
+              <br />
+              <input
+                id="name"
+                name="name"
+                type="text"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.name}
+              />
+              {formik.touched.name && formik.errors.name ? (
+                <div>{formik.errors.name}</div>
+              ) : null}
+              <br />
+              <label htmlFor="lastName">E-Mail</label>
+              <br />
+              <input
+                id="email"
+                name="email"
+                type="email"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.email}
+              />
+              {formik.touched.email && formik.errors.email ? (
+                <div>{formik.errors.email}</div>
+              ) : null}
+              <br />
+              <label htmlFor="password">Password</label>
+              <br />
+              <input
+                id="password"
+                name="password"
+                type="password"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.password}
+              />
+              {formik.touched.password && formik.errors.password ? (
+                <div>{formik.errors.password}</div>
+              ) : null}
+              <br />
+              <label htmlFor="passwordRepeat">Confirm Password</label>
+              <br />
+              <input
+                id="passwordRepeat"
+                name="passwordRepeat"
+                type="password"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.passwordRepeat}
+              />
+              {formik.touched.passwordRepeat && formik.errors.passwordRepeat ? (
+                <div>{formik.errors.passwordRepeat}</div>
+              ) : null}
+              <br />
+              <label htmlFor="role">Role</label>
+              <select
+                className="register-input"
+                id="role"
+                name="role"
+                type="text"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.role}
+              >
+                <option value="">Select Role</option>
+                <option value="admin">Admin</option>
+                <option value="user">User</option>
+              </select>
+              {formik.touched.role && formik.errors.role ? (
+                <div>{formik.errors.role}</div>
+              ) : null}
+              <br />
 
-      <label htmlFor="profilePictureUrl">Profile Picture URL</label>
-      <input
-        className="register-input"
-        id="profilePictureUrl"
-        name="profilePictureUrl"
-        type="url"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.profilePictureUrl}
-      />
-      {formik.touched.profilePictureUrl && formik.errors.profilePictureUrl ? (
-        <div>{formik.errors.profilePictureUrl}</div>
-      ) : null}
-      <br />
-      <label htmlFor="phoneNumber">Phone Number</label>
-      <input
-        className="register-input"
-        id="phoneNumber"
-        name="phoneNumber"
-        type="string"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.phoneNumber}
-      />
-      {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
-        <div>{formik.errors.phoneNumber}</div>
-      ) : null}
-      <br />
-      <button type="submit" value="Register">
-        Submit
-      </button>
-    </form>
+              <label htmlFor="profilePictureUrl">Profile Picture URL</label>
+              <br />
+              <input
+                id="profilePictureUrl"
+                name="profilePictureUrl"
+                type="url"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.profilePictureUrl}
+              />
+              {formik.touched.profilePictureUrl &&
+              formik.errors.profilePictureUrl ? (
+                <div>{formik.errors.profilePictureUrl}</div>
+              ) : null}
+              <br />
+              <label htmlFor="phoneNumber">Phone Number</label>
+              <br />
+              <input
+                id="phoneNumber"
+                name="phoneNumber"
+                type="string"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.phoneNumber}
+              />
+              {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
+                <div>{formik.errors.phoneNumber}</div>
+              ) : null}
+              <br />
+              <br />
+              <button className="btn-signup" type="submit" value="Register">
+                SIGNUP
+              </button>
+            </form>
+          </Container>
+        </div>
+      </Container>
+    </>
   );
 }
 
