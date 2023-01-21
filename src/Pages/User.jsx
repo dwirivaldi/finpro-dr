@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, Col, Row, Card } from "react-bootstrap";
 import { getAllUsers } from "../API";
+import "../Styles/AllUsers.css";
 
 function User() {
   const [allUser, setAllUser] = useState([]);
@@ -19,17 +20,17 @@ function User() {
     <>
       <div className="user-header">
         <div className="user-textbox">
-          <h1>Get to know the members of Food Journal</h1>
+          <h1>Get to know the members of FoodiesDev</h1>
         </div>
       </div>
-      <Container fluid className="container-foodcard">
+      <Container fluid className="container-user">
         <Row xs={1} md={3} lg={4} mt={3} mx-lg={4} mx={4}>
           {allUser.map((user) => {
             return (
-              <Col md={4} key={user.id} className="food-card">
+              <Col md={4} key={user.id} className="user">
                 <Card
                   style={{ width: "18rem" }}
-                  className="food-card-2  flex-column"
+                  className="all-user flex-column"
                 >
                   <Card.Img
                     variant="top"
@@ -41,7 +42,7 @@ function User() {
                     src={user.profilePictureUrl}
                     alt={user.name}
                   />
-                  <Card.Body style={{ backgroundColor: "#a24f38" }}>
+                  <Card.Body style={{ backgroundColor: "#FF5F95" }}>
                     <Card.Title className="user-cardtitle">
                       {user.name}
                     </Card.Title>

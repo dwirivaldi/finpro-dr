@@ -1,0 +1,19 @@
+.user-textbox{
+    margin-top: 65px;
+    margin-bottom: -120px;
+}
+.row{
+    margin: 155px;
+}
+
+.user{
+    margin-bottom: 30px;
+}
+
+.user-cardtitle{
+    text-align: left;
+}
+
+.user-cardtext{
+    text-align: justify;
+}
