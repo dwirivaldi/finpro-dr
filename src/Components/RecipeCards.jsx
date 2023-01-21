@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
-import Col from "react-bootstrap/Col";
 import axios from "axios";
 import "../Styles/RecipeCards.css";
 
@@ -18,8 +17,7 @@ function RecipeCards() {
       .then((res) => {
         setAllFoods(res.data.data);
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
         alert("Oops!!! Please reload the page.");
       });
   };
@@ -40,14 +38,10 @@ function RecipeCards() {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
           apiKey: `${process.env.REACT_APP_APIKEY}`,
         },
-      })
-        .then((res) => {
-          console.log(res);
-          getFood();
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      }).then((res) => {
+        console.log(res);
+        getFood();
+      });
     } else {
       axios({
         method: "post",
@@ -59,14 +53,10 @@ function RecipeCards() {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
           apiKey: `${process.env.REACT_APP_APIKEY}`,
         },
-      })
-        .then((res) => {
-          console.log(res);
-          getFood();
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      }).then((res) => {
+        console.log(res);
+        getFood();
+      });
     }
   };
 

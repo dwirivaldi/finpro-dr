@@ -36,7 +36,6 @@ function Login() {
         })
         .then((res) => {
           const token = res.data.token;
-          console.log(token);
           localStorage.setItem("token", token);
 
           const role = res.data.user.role;
@@ -46,8 +45,7 @@ function Login() {
           localStorage.setItem("name", name);
           window.location.href = "/";
         })
-        .catch((error) => {
-          console.error(error);
+        .catch(() => {
           alert("Invalid email and password.");
         });
     },

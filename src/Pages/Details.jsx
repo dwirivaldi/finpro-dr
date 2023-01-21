@@ -19,9 +19,6 @@ function Details() {
       })
       .then((response) => {
         setAllDetail(response.data.data);
-      })
-      .catch((error) => {
-        console.log(error);
       });
   }, [foodID]);
 

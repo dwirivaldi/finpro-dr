@@ -63,8 +63,7 @@ function Register() {
           alert("Your account is registered. Log in to access your website!");
           window.location.href = "/";
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           alert("Registration failed. Please try again!");
         });
     },

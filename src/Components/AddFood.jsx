@@ -18,15 +18,11 @@ const AddFood = ({ onSuccess }) => {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
         apiKey: process.env.REACT_APP_APIKEY,
       },
-    })
-      .then((response) => {
-        alert(`${response.data.message}`);
-        resetForm({ values: "" });
-        onSuccess();
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    }).then((response) => {
+      alert(`${response.data.message}`);
+      resetForm({ values: "" });
+      onSuccess();
+    });
   };
 
   const MyTextInput = ({ label, ...props }) => {

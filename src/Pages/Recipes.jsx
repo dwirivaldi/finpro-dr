@@ -20,11 +20,3 @@ function Recipes() {
 }
 
 export default Recipes;
-
-{
-  /* <div className="add-menu">
-  <button>
-    <i class="bi bi-plus-square-fill"></i> Menu
-  </button>
-</div>; */
-}
