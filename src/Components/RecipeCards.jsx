@@ -122,15 +122,14 @@ function RecipeCards() {
                   <i className="bi bi-info-circle"></i>
                 </a>
                 <a
+                  href="#"
                   key={food.id}
                   onClick={() => handleDelete(food.id)}
                   style={{ cursor: "pointer", color: "red" }}
                 >
                   <i className="bi bi-trash"></i>
                 </a>
-                <a>
-                  <i className="bi bi-pencil-square"></i>
-                </a>
+                <i className="bi bi-pencil-square"></i>
               </Card.ImgOverlay>
             </Card>
           );
