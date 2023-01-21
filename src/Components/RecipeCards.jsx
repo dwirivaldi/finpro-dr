@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import axios from "axios";
+import { Button } from "react-bootstrap";
 import "../Styles/RecipeCards.css";
 
 function RecipeCards() {
@@ -121,14 +122,20 @@ function RecipeCards() {
                 <a key={food.id} href={`/details/${food.id}`}>
                   <i className="bi bi-info-circle"></i>
                 </a>
-                <a
-                  href="#"
+                <Button
                   key={food.id}
                   onClick={() => handleDelete(food.id)}
-                  style={{ cursor: "pointer", color: "red" }}
+                  style={{
+                    cursor: "pointer",
+                    color: "red",
+                    width: "1px",
+                    background: "none",
+                    border: "none",
+                    marginLeft: "-11px",
+                  }}
                 >
                   <i className="bi bi-trash"></i>
-                </a>
+                </Button>
                 <i className="bi bi-pencil-square"></i>
               </Card.ImgOverlay>
             </Card>
