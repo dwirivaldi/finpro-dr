@@ -26,7 +26,7 @@ function NavBar() {
                 title={localStorage.getItem("name")}
                 id="basic-nav-dropdown"
               >
-                <NavDropdown.Item href="/all-users">User</NavDropdown.Item>
+                <NavDropdown.Item href="/all-users">All User</NavDropdown.Item>
                 <NavDropdown.Item>
                   <Logout />
                 </NavDropdown.Item>

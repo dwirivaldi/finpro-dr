@@ -20,7 +20,7 @@ function User() {
     <>
       <div className="user-header">
         <div className="user-textbox">
-          <h1>Get to know the members of FoodiesDev</h1>
+          <h1>All members of FoodiesDev</h1>
         </div>
       </div>
       <Container fluid className="container-user">
