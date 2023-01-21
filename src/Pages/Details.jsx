@@ -41,7 +41,7 @@ function Details() {
             {allDetail && allDetail.totalLikes}
           </div>
         </div>
-        <img src={allDetail && allDetail.imageUrl} />
+        <img src={allDetail && allDetail.imageUrl} alt="" />
       </div>
     </>
   );
